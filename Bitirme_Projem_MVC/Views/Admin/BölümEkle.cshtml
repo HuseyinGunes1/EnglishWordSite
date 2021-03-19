@@ -1,0 +1,38 @@
+﻿@model Bitirme_Projem_Entities.ValueObject.DiziBölümView
+@{
+    ViewBag.Title = "BölümEkle";
+    Layout = "~/Views/Shared/AdminPanel.cshtml";
+}
+
+<div class="col-md-12 mt-5">
+
+    <div class="row">
+        <div class="col-sm-4 mt-2">
+            @Html.DropDownListFor(x => x.DiziId, Model.My_Diziler, new { @class = "form-control diziid" })
+        </div>
+        <div class="col-sm-4 mt-2">
+            @Html.DropDownListFor(x => x.SezonId, Model.My_Sezon, new { @class = "form-control" })
+        </div>
+    </div>
+
+</div>
+<div class="col-md-12 mt-4" id="bolumid">
+    <div class="card">
+        <div class="card-body">
+            <!-- title -->
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Bölüm  Adı Giriniz</label>
+                    <input type="text" required class="form-control" id="BolumAd" aria-describedby="emailHelp" placeholder="Kelime">
+
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="BolumEkle"> Bölüm Ekle</button>
+            </form>
+            <!-- title -->
+        </div>
+
+    </div>
+</div>
+
+

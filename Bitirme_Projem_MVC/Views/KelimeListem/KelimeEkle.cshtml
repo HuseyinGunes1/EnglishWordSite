@@ -1,0 +1,29 @@
+﻿@model Bitirme_Projem_Entities.Kelimeler
+@{
+    ViewBag.Title = "KelimeEkle";
+    Layout = "~/Views/Shared/AnaEkran.cshtml";
+}
+@{
+
+}
+
+<span style="color:red">@Html.ValidationSummary()</span>
+@using (Html.BeginForm("KelimeEkle", "KelimeListem", FormMethod.Post))
+{
+
+    
+    <div class="form-group ml-3">
+        <label for="exampleInputEmail1">Kelime</label>
+        @Html.TextBoxFor(x => x.Kelime_İng, new { @class = "form-control", placeholder = "Kelimeyi Giriniz" })
+
+
+    </div>
+    <div class="form-group ml-3">
+        <label for="exampleInputPassword1">Kelime Anlamı</label>
+        @Html.TextBoxFor(x => x.Kelime_Turk, new { @class = "form-control", placeholder = "Kelimeyi Anlamını Giriniz" })
+    </div>
+
+    <button type="submit" onclick="sayi(@Session["user_id"])" class="btn btn-primary ml-3">Kelime Listeme Ekle</button>
+}
+
+  

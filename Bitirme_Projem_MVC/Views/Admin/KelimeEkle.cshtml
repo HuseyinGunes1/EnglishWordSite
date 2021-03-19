@@ -1,0 +1,58 @@
+﻿@model Bitirme_Projem_Entities.ValueObject.DiziBölümView
+@{
+    ViewBag.Title = "KelimeEkle";
+    Layout = "~/Views/Shared/AdminPanel.cshtml";
+}
+
+
+
+<div class="col-md-12 mt-5">
+
+    <div class="row">
+        <div class="col-sm-4 mt-2">
+            @Html.DropDownListFor(x => x.DiziId, Model.My_Diziler, new { @class = "form-control" })
+        </div>
+        <div class="col-sm-4 mt-2">
+            @Html.DropDownListFor(x => x.SezonId, Model.My_Sezon, new { @class = "form-control" })
+        </div>
+        <div class="col-sm-4 mt-2">
+            @Html.DropDownListFor(x => x.BölümId, Model.My_Bölüm, new { @class = "form-control" })
+        </div>
+
+
+
+    </div>
+
+</div>
+
+
+
+<!-- column -->
+<div class="col-md-12 mt-4" id="deneme">
+    <div class="card">
+        <div class="card-body">
+            <!-- title -->
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Kelimeyi Giriniz</label>
+                    <input type="text" required class="form-control" id="Kelimeing" aria-describedby="emailHelp" placeholder="Kelime">
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Kelime Anlamını Giriniz</label>
+                    <input type="text" required class="form-control" id="Anlami" aria-describedby="emailHelp" placeholder="Anlamı">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Tekrar Sayısını Giriniz</label>
+                    <input type="number" required class="form-control" id="Tekrar" aria-describedby="emailHelp" placeholder="Tekrar Sayısı">
+                </div>
+                <button type="submit" class="btn btn-primary" id="KelimeEkle">Kelime Ekle</button>
+            </form>
+            <!-- title -->
+        </div>
+
+    </div>
+</div>
+
+
+<script src="~/Scripts/toastr.js"></script>

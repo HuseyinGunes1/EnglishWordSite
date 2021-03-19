@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Bitirme_Projem_Entities.Kelimeler>
+
+@{
+    ViewBag.Title = "KelimeListesi";
+    Layout = "~/Views/Shared/AdminPanel.cshtml";
+}
+
+<h2>KelimeListesi</h2>
+
+
+<table class="table mt-5" >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Kelime_Turk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kelime_İng)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kelime_Turk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kelime_İng)
+        </td>
+        <td>
+            <button class="btn btn-primary" onclick="myFunction(@Html.DisplayFor(modelItem => item.Kelime_İng))">Düzenle</button>
+            <button class="btn btn-danger" onclick="Sil(@Html.DisplayFor(modelItem => item.Kelime_İng))">Sil</button>
+
+
+        </td>
+    </tr>
+}
+
+</table>

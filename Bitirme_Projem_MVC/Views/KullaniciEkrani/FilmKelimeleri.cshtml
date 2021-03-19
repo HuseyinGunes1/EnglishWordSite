@@ -1,0 +1,229 @@
+﻿@model Bitirme_Projem_Entities.ValueObject.DiziBölümView
+@{
+    ViewBag.Title = "FilmKelimeleri";
+    Layout = "~/Views/Shared/AnaEkran.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap CRUD Data Table for Database with Modal Form</title>
+
+
+
+
+</head>
+<body>
+    <input type="hidden" id="session" value=@Session["user_id"] />
+    <div class="container-xl">
+        <div class="table-responsive">
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="row">
+                        <div id="deneme" class="col-sm-6">
+                            <h2>Dizi/Film <b>Kelimeleri</b></h2>
+                        </div>
+                        <div class="col-sm-6">
+                            <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Dizi/Film Seçiniz</span></a>
+
+                        </div>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th id="bbb" scope="col">No</th>
+                            <th scope="col">Kelime</th>
+                            <th scope="col">Anlamı</th>
+                            <th scope="col">Tekrar Sayısı</th>
+                            <th scope="col">Aksiyon</th>
+                        </tr>
+                    </thead>
+                    <tbody id="TableBody"></tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+
+
+
+       
+
+            <div class="modal fade" id="addEmployeeModal" tabindex="-1" data-keyboard="false" data-backdrop="static">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header">
+                                <h4 class="modal-title">Dizi/Film Seçiniz</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label>Dizi</label>
+                                    @Html.DropDownListFor(x => x.DiziId, Model.My_Diziler, new { @class = "form-control" })
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Sezon</label>
+
+                                    @Html.DropDownListFor(x => x.SezonId, Model.My_Sezon, new { @class = "form-control" })
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Bölüm</label>
+
+                                    @Html.DropDownListFor(x => x.BölümId, Model.My_Bölüm, new { @class = "form-control" })
+
+
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        
+        <!-- Edit Modal HTML -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Edit Modal HTML -->
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#DiziId").change(function () {//dizi seçildiğinde
+                var id = $(this).val();//bağlanılan idnin valuesi
+                var sezonlist = $("#SezonId");
+                //Ajax ile bir controler üzerine gidip o controlerdan DiziSezon verilerini json olarak getirme
+                sezonlist.empty();
+                $.ajax({ //Ajax bağlantısı gerçekleştirildi
+                    url: '/KullaniciEkrani/SezonListe',//bağlanacağımız url
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { 'id': id }, //gönderilecek veri
+                    success: function (data) {
+                        //gelen data controlerdan dönen Itemlist
+                        sezonlist.append('<option value=' + "Bölüm Seçiniz" + '></option');
+                        $.each(data, function (index, option) {//foreach döngüsü ile sezonlistesi yazılacak
+                            //datanın içinde dönerken ordaki her item option olarak nitelenir
+                            sezonlist.append('<option value=' + option.Value + '> ' + option.Text + '</option');
+                        })
+                    }
+
+                });
+            });
+
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#SezonId").change(function () {//sezon seçildiğinde
+                var id = $(this).val();//bağlanılan idnin valuesi
+                var Bölümlist = $("#B_l_mId");
+                //Ajax ile bir controler üzerine gidip o controlerdan DiziSezon verilerini json olarak getirme
+                Bölümlist.empty();
+                $.ajax({ //Ajax bağlantısı gerçekleştirildi
+                    url: '/KullaniciEkrani/BölümListe',//bağlanacağımız url
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { 'id': id }, //gönderilecek veri
+                    success: function (veri) {
+                        //gelen data controlerdan dönen Itemlist
+                        Bölümlist.append('<option value=' + "Bölüm Seçiniz" + '></option');
+                        $.each(veri, function (index, option) {//foreach döngüsü ile sezonlistesi yazılacak
+                            //datanın içinde dönerken ordaki her item option olarak nitelenir
+                            Bölümlist.append('<option value=' + option.Value + '> ' + option.Text + '</option');
+                        })
+                    }
+
+                });
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#B_l_mId").change(function () {//sezon seçildiğinde
+                var idim = $(this).val();
+                $('#TableBody').empty();
+                $.ajax({
+                    url: '@Url.Action("KelimeListesi", "KullaniciEkrani")',
+                    dataType: 'json',
+                    data: { id: idim },
+
+                    success: function (data) {
+
+                        $.each(data, function (index, deger) {
+                            index++;
+                            var deger = "<tr ><td>" + index + "</td><td >" + deger.KelimeIng + "</td><td>" + deger.KelimeTurk + "</td><td>" + deger.Kelimesayısı + "</td><td class='d-flex justify-content-around'><a href='#editEmployeeModal' onClick = 'ogrenecegim(" + deger.KelimeId + "," + document.getElementById("session").value + ");'   class='edit d-inline-block' data-toggle='modal'><i  class='fas fa-fw fa-chart-area' data-toggle='tooltip' title='Öğreneceğim Kelime'>&#xE254;</i></a>  <a href='#deleteEmployeeModal' onClick = 'Bildigim(" + deger.KelimeId + "," + document.getElementById("session").value +");' class='delete ' data-toggle='modal'><i class='fas fa-check fa-2x'style='color: #66ff00' data-toggle='tooltip' title='Bildiğim Kelime'></i></a><a href='#editEmployeeModal' onClick = 'openSolution(" + deger.KelimeId + "," + document.getElementById("session").value +");' class='edit d - inline - block' data-toggle='modal'><i class='fas fa-fw fa-table fa-2x ml-2' style='color: #0095b6' data-toggle='tooltip' title='Kelime Listem'>&#xE254;</i></a></td></tr>";
+                            $('#TableBody').append(deger);
+
+
+                            swal({
+                                title: "",
+                                text: "Kelimeler Listelendi",
+                                icon: "success",
+                                button: "Tamam",
+                            });
+                            $("#SezonId").empty();
+
+                            $("#B_l_mId").empty();
+
+                        });
+
+
+
+                    },
+
+
+                });
+
+
+
+
+
+
+            });
+
+        });
+
+    </script>
+
+
+
+
+}
+
+
+
+

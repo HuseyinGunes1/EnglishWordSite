@@ -1,0 +1,16 @@
+C:\Users\hüseyin\source\repos\Bitirme_Projem_MVC\Common\bin\Debug\Common.dll
+C:\Users\hüseyin\source\repos\Bitirme_Projem_MVC\Common\bin\Debug\Common.pdb
+C:\Users\hüseyin\source\repos\Bitirme_Projem_MVC\Common\obj\Debug\Bitirme_Projem_Common.csprojAssemblyReference.cache
+C:\Users\hüseyin\source\repos\Bitirme_Projem_MVC\Common\obj\Debug\Bitirme_Projem_Common.csproj.CoreCompileInputs.cache
+C:\Users\hüseyin\source\repos\Bitirme_Projem_MVC\Common\obj\Debug\Common.dll
+C:\Users\hüseyin\source\repos\Bitirme_Projem_MVC\Common\obj\Debug\Common.pdb
+C:\Users\hüseyin\source\repos\Bitirme_Projem_MVC\Common\bin\Debug\Common.Logging.Core.dll
+C:\Users\hüseyin\source\repos\Bitirme_Projem_MVC\Common\bin\Debug\Common.Logging.dll
+C:\Users\hüseyin\source\repos\Bitirme_Projem_MVC\Common\bin\Debug\Quartz.dll
+C:\Users\hüseyin\source\repos\Bitirme_Projem_MVC\Common\bin\Debug\Common.Logging.pdb
+C:\Users\hüseyin\source\repos\Bitirme_Projem_MVC\Common\bin\Debug\Common.Logging.xml
+C:\Users\hüseyin\source\repos\Bitirme_Projem_MVC\Common\bin\Debug\Common.Logging.Core.pdb
+C:\Users\hüseyin\source\repos\Bitirme_Projem_MVC\Common\bin\Debug\Common.Logging.Core.xml
+C:\Users\hüseyin\source\repos\Bitirme_Projem_MVC\Common\bin\Debug\Quartz.pdb
+C:\Users\hüseyin\source\repos\Bitirme_Projem_MVC\Common\bin\Debug\Quartz.xml
+C:\Users\hüseyin\source\repos\Bitirme_Projem_MVC\Common\obj\Debug\Bitirme_Projem_Common.csproj.CopyComplete

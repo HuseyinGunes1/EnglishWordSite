@@ -1,0 +1,203 @@
+@media only screen and (max-width: 768px) {
+    header .nav-item{
+        width: 100px;
+        border: 0px ;
+        font-size: 20px;
+        border-radius: 0%;
+        background-color: transparent;
+        float: left;
+        
+    }
+    header .nav-btn{
+        color: rgb(29, 28, 28);
+        font-weight: 400;
+    }
+    .navbar-brand{
+        margin-left: 5px;
+    }
+    .slider-h2{
+       visibility: hidden;
+    }
+    .slider-butn{
+        visibility: hidden;
+    }
+    .s1-h{
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .s1-p{
+       font-size: 14px;
+    }
+    .s1-p::before{
+        width: 0px;
+     height: 0px;
+        visibility: hidden;
+    }
+    .s1-p::after{
+        width: 0px;
+     height: 0px;
+        visibility: hidden;
+    }
+    .s4-h{
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .s4-p{
+        font-size: 14px;
+     }
+    .s4-p::before{
+        width: 0px;
+     height: 0px;
+        visibility: hidden;
+    }
+    .s4-p::after{
+        width: 0px;
+     height: 0px;
+        visibility: hidden;
+    }
+    .image-responsive{
+        width: 55px;
+
+    }
+    .carousel-inner
+    {
+        margin-top: 65px;
+    }
+    
+    
+    #footer h5 {
+        padding-left: 0;
+        border-left: transparent;
+        padding-bottom: 0px;
+        margin-bottom: 10px;
+
+  }
+  .carousel-control-prev-icon,
+.carousel-control-next-icon{
+    
+    visibility: hidden;
+}
+
+#section-3 h1{
+    font-size: 30px;
+}
+
+#section-3 h4{
+    margin: 0px;
+    padding: 0px;
+    font-size: 20px;
+}
+#section-3 span{
+    font-size: 25px;
+}
+
+#kyd-btn{
+    
+    text-align: center;
+    height: 50px;
+    width: 170px;
+    font-size: 20px;
+    font-weight: 400;
+    border: .125rem solid #116eee;
+    color: #fff;
+    background-color: #116eee;
+}
+
+
+#face-btn{
+    height: 60px;
+    width: 180px;
+    margin-left: 75px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 400;
+    background-color: #3b5998;
+    color: white;
+    box-shadow: 3px 3px 4px rgb(180, 175, 175);
+    margin-bottom: 15px;
+}
+#google-btn{
+    margin-left: 75px;
+    text-align: center;
+    height: 60px;
+    width: 180px;
+    background-color: transparent;
+    box-shadow: 3px 3px 4px rgb(180, 175, 175);
+    font-size: 28px;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    font-family: 'Arapey', serif;
+    
+}
+.fa {
+   
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    
+  }
+.fa-facebook {
+    color: white;
+  }
+  
+  #google{
+      
+    margin-right: 10px;
+    width: 25px;
+    text-align: center;
+   
+    text-align: center;
+  }
+
+
+}
+
+@media only screen and (max-width: 350px){
+
+    #face-btn{
+        height: 60px;
+        width: 180px;
+        text-align: center;
+        font-size: 22px;
+        font-weight: 400;
+        background-color: #3b5998;
+        color: white;
+        box-shadow: 3px 3px 4px rgb(180, 175, 175);
+        margin-bottom: 15px;
+        margin-left: -35px;
+    }
+    #google-btn{
+        text-align: center;
+        height: 60px;
+        width: 180px;
+        background-color: transparent;
+        box-shadow: 3px 3px 4px rgb(180, 175, 175);
+        font-size: 28px;
+        color: rgb(0, 0, 0);
+        font-weight: 500;
+        font-family: 'Arapey', serif;
+        margin-left: -35px;
+        
+    }
+    .fa {
+       
+        font-size: 30px;
+        width: 30px;
+        text-align: center;
+        
+      }
+    .fa-facebook {
+        color: white;
+      }
+      
+      #google{
+          
+        margin-right: 10px;
+        width: 25px;
+        text-align: center;
+       
+        text-align: center;
+      }
+
+}
+

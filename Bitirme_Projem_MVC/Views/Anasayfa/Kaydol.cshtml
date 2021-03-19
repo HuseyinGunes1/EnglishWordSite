@@ -1,0 +1,116 @@
+﻿@model Bitirme_Projem_Entities.ValueObject.LoginGirisView
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Kaydol</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="~/css/Ana.css">
+    <link rel="stylesheet" type="text/css" href="~/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="~/css/kaydol.css">
+   
+
+
+</head>
+<body>
+
+    <style type="text/css">
+        .validation-summary-errors {
+            border: 2px dotted #a94442;
+            background-color: #d76663;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+            .validation-summary-errors ul {
+                padding: 10px;
+                color: #fff;
+            }
+    </style>
+    
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg  bg-light">
+
+            <div class="container-fluid">
+                <a class="navbar-brand " href="#"><img src="~/image/app-store.png" /></a>
+
+            </div>
+        </nav>
+
+
+    </header>
+
+
+
+    <div id="modal" class="row justify-content-center ">
+        <div class="col-12 col-sm-6 col-lg-5">
+            <div class="container ">
+                <div class="row mb-5">
+                    <div class="col-12 col-sm-12 col-lg-12">
+                       
+                    </div>
+                    <div class="col-12 col-sm-12 col-lg-12 mt-5">
+                        <h2 id="modalheader-h2"> Kelime Bilgini Güçlendirmek İçin Kaydol</h2>
+                    </div>
+                </div>
+                <!-- 1  -->
+               
+                <!-- 2  -->
+
+
+                <div class="row mt-5">
+
+                    <div class="col-5 col-sm-5 col-lg-5"><hr class="hr1"></div>
+                    <div class="col-2 col-sm-2 col-lg-2"><p id="p1" class="  text-center">Veya</p></div>
+                    <div class="col-5 col-sm-5 col-lg-5"><hr class="hr1"></div>
+                </div>
+                <span>
+                    @Html.ValidationSummary(false)
+                </span>
+                <!-- 3  -->
+                @using (Html.BeginForm("Kaydol", "Anasayfa", FormMethod.Post))
+                {
+
+                    <form>
+                        <div class=" form-group">
+                            <label for="exampleInputEmail1">E-posta</label>
+                            @Html.TextBoxFor(x => x.Kullanici_EPosta, new { @class = "inpt form-control", placeholder = "E-Postayı Giriniz" })
+
+                        </div>
+                        <div class="form-group  h-75">
+                            <label for="exampleInputEmail1">Adınız</label>
+                            @Html.TextBoxFor(model => model.Kullanici_Ad, new { @class = "inpt form-control", placeholder = "Adınızı Giriniz", id = "ad" })
+
+                        </div>
+                        <div class="form-group  h-75">
+                            <label for="exampleInputPassword1">Parola</label>
+                            @Html.PasswordFor(x => x.Kullanici_Sifre, new { @class = "inpt form-control", placeholder = "Parolayı Giriniz" })
+                        </div>
+                        <div class="row justify-content-center ">
+                            <div class="col-6 col-sm-6 col-lg-6 col-xl-6">
+                                <button type="submit" id="kyd-btn" class="btn  btn-lg rounded-pill ">KAYDOL</button>
+                            </div>
+                        </div>
+                    </form>
+                }
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+  
+   
+</body>
+</html>

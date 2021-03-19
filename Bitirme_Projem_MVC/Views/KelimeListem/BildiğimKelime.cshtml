@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "BildiğimKelime";
+    Layout = "~/Views/Shared/AnaEkran.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+</head>
+<body>
+    <input type="hidden" id="session" value=@Session["user_id"] />
+    <div class="container-xl">
+        <div class="table-responsive">
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2> <b id="tikla">Kelime Listem</b></h2>
+                        </div>
+
+                    </div>
+                </div>
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+
+
+                            <th>No</th>
+                            <th>Kelime</th>
+                            <th>Anlamı</th>
+                            <th>Tekrar Sayısı</th>
+                            <th>Aksiyon</th>
+                        </tr>
+                    </thead>
+                    <tbody id="TableBody"></tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
+@section scripts{
+   
+
+
+
+    <script type="text/javascript">
+        function Bildigimler() {
+            var kategori = 2;
+            var x = document.getElementById("session").value;
+
+
+
+            $.ajax({
+                url: '/KelimeListem/Kelimelistesi',
+                type: 'POST',
+                dataType: 'json',
+
+                data: { id: x, Kategoriid: kategori },
+
+                success: function (data) {
+
+                    $.each(data, function (index, deger) {
+                        index++;
+                        var deger = "<tr ><td>" + index + "</td><td >" + deger.Kelime + "</td><td>" + deger.Anlami + "</td><td>" + deger.Tekrarsayisi + "</td><td class='d-flex justify-content-around'><a href='#editEmployeeModal' onClick = 'Ogrenecekler(" + deger.Kelimeid + "," + document.getElementById("session").value + ");'   class='edit d-inline-block' data-toggle='modal'><i  class='fas fa-fw fa-chart-area' data-toggle='tooltip' title='Öğreneceğim Kelime'>&#xE254;</i></a></td></tr>";
+                        $('#TableBody').append(deger);
+
+
+
+
+
+                    });
+
+
+
+                }
+
+
+            });
+        }
+        $(document).ready(function () {
+
+            Bildigimler();
+
+
+        });
+
+    </script>
+
+    <script src="~/js/Action5.js"></script>
+
+}
